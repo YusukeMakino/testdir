@@ -3,6 +3,7 @@ library(nycflights13)
 flights %>% 
   group_by(dest) %>% 
   summarise(mean_arr_delay=mean(arr_delay,na.rm = TRUE)) %>% 
+  filter(mean_arr_delay>25) %>% 
   arrange(desc(mean_arr_delay))
 flights %>% 
   group_by(origin) %>% 
